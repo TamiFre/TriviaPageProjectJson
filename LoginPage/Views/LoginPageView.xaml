@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LoginPage.Views.LoginPageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:LoginPage.ViewModels"
+    Title="Login Page"
+    x:DataType="vm:LoginPageViewModel">
+    <VerticalStackLayout HorizontalOptions="Center">
+
+        <Grid RowDefinitions="1*,1*,1*,1*" RowSpacing="30">
+            <Entry
+                Grid.Row="0"
+                FontFamily="SuperOceanPersonalUse"
+                Placeholder="Username"
+                Text="{Binding Name}" />
+
+            <Entry
+                Grid.Row="1"
+                FontFamily="SuperOceanPersonalUse"
+                Placeholder="Password"
+                IsPassword="True"
+                Text="{Binding Password}" />
+
+            <Grid
+                Grid.Row="3"
+                ColumnDefinitions="1*, 1*"
+                RowDefinitions="1*"
+                RowSpacing="20">
+                <Button Margin="5"
+                    Grid.Column="0"
+                     Grid.Row="1"
+                    Command="{Binding LoginCommand }"
+                    FontFamily="SuperOceanPersonalUse"
+                    Text="Login" />
+
+                <Button Margin="5"
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Command="{Binding CancelCommand }"
+                    FontFamily="SuperOceanPersonalUse"
+                    Text="Cancel" />
+
+            </Grid>
+
+            <Label
+                Grid.Row="3"
+                HorizontalOptions="Center"
+                Text="{Binding LabelText}"
+                TextColor="{Binding Color}" />
+
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>

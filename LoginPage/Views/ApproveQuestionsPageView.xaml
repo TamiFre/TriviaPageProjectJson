@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LoginPage.Views.ApproveQuestionsPageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:LoginPage.Models"
+    xmlns:vm="clr-namespace:LoginPage.ViewModels"
+    Title="Approve Questions"
+    x:DataType="vm:ApproveQuestionsPageViewModel">
+    <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+        <ScrollView x:Name="scrlview" Margin="10">
+            <VerticalStackLayout WidthRequest="400">
+
+                <Picker
+                    Title="Filter"
+                    x:DataType="models:SubjectQ"
+                    FontFamily="SuperOceanPersonalUse"
+                    ItemDisplayBinding="{Binding SubjectName}"
+                    ItemsSource="{Binding BindingContext.Subjects, Source={x:Reference scrlview}}"
+                    SelectedItem="{Binding BindingContext.SelectedSubject, Source={x:Reference scrlview}}" />
+                <CollectionView x:Name="colview" ItemsSource="{Binding PenQuestions}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="4" Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.EmptyView>
+                        <StackLayout
+                            Margin="10"
+                            BackgroundColor="LightBlue"
+                            HeightRequest="100"
+                            VerticalOptions="Start" />
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Q">
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                        <SwipeItem
+                                            Command="{Binding Source={x:Reference colview}, Path=BindingContext.ApproveCommand}"
+                                            CommandParameter="{Binding .}"
+                                            IconImageSource="approved.png"
+                                            Text="approve" />
+                                        <SwipeItem
+                                            Command="{Binding Source={x:Reference colview}, Path=BindingContext.DeclineCommand}"
+                                            CommandParameter="{Binding .}"
+                                            IconImageSource="declined.png"
+                                            Text="decline" />
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+
+                                <StackLayout Margin="10">
+                                    <Label FontFamily="SuperOceanPersonalUse" Text="{Binding SubjectName}" />
+                                    <Label FontFamily="SuperOceanPersonalUse" Text="{Binding QTitle}" />
+
+                                </StackLayout>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <Button
+                    Margin="20"
+                    BackgroundColor="#467a54"
+                    Command="{Binding FilterCommand}"
+                    FontFamily="SuperOceanPersonalUse"
+                    Text="Filter" />
+                <Button
+                    Margin="20"
+                    BackgroundColor="#467a54"
+                    Command="{Binding ClearFilterCommand}"
+                    FontFamily="SuperOceanPersonalUse"
+                    Text="Clear filter " />
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </RefreshView>
+</ContentPage>

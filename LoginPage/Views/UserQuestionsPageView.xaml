@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LoginPage.Views.UserQuestionsPageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:LoginPage.Models"
+    xmlns:vm="clr-namespace:LoginPage.ViewModels"
+    x:Name="this"
+    Title="UserQuestionsPageView"
+    x:DataType="vm:UserQuestionsPageViewModel">
+
+    <!--  להציג את אוסף השאלות של המשתמש והסטטוס שלהן. יציג אתת נושא השאלה הקטוגריה והסטטוס  -->
+    <ScrollView>
+        <StackLayout HorizontalOptions="CenterAndExpand">
+            <Button
+                BackgroundColor="Beige"
+                BorderColor="DarkGray"
+                Command="{Binding ShowAllQuestions}"
+                FontFamily="SuperOceanPersonalUse"
+                HeightRequest="70"
+                HorizontalOptions="Center"
+                TextColor="Black"
+                WidthRequest="400"
+                Text="Show Questions"/>
+            <CollectionView
+                x:Name="colView"
+                EmptyView="No Questions"
+                HorizontalOptions="Center"
+                ItemsSource="{Binding Questions}"
+                SelectedItem="{Binding SelectedQuestion}"
+                SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Q">
+
+                        <Border>
+                            <Grid
+                                Margin="10"
+                                ColumnDefinitions="*"
+                                RowDefinitions="*,*,*">
+
+                                <Label
+                                    Grid.Row="0"
+                                    FontFamily="SuperOceanPersonalUse"
+                                    Text="{Binding QTitle}" />
+
+                                <Label
+                                    Grid.Row="1"
+                                    FontFamily="SuperOceanPersonalUse"
+                                    Text="{Binding Status.StatusName}"
+                                    TextColor="#adde87" />
+
+                                <Label
+                                    Grid.Row="2"
+                                    FontFamily="SuperOceanPersonalUse"
+                                    Text="{Binding Subject.SubjectName}"
+                                    TextColor="#467a54" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Border BackgroundColor="BlanchedAlmond">
+                <Picker
+                    x:Name="Picker"
+                    Title="Select filter"
+                    FontFamily="SuperOceanPersonalUse"
+                    HorizontalOptions="Center"
+                    ItemDisplayBinding="{Binding StatusName}"
+                    ItemsSource="{Binding Status}"
+                    SelectedIndex="{Binding SelectedIndex}"
+                    SelectedItem="{Binding SelectedStatus}" />
+            </Border>
+
+
+
+
+
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
