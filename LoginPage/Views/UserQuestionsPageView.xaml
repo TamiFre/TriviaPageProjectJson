@@ -19,9 +19,9 @@
                 FontFamily="SuperOceanPersonalUse"
                 HeightRequest="70"
                 HorizontalOptions="Center"
+                Text="Show Questions"
                 TextColor="Black"
-                WidthRequest="400"
-                Text="Show Questions"/>
+                WidthRequest="400" />
             <CollectionView
                 x:Name="colView"
                 EmptyView="No Questions"

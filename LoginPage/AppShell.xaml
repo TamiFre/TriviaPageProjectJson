@@ -7,24 +7,21 @@
     Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
-        Title="Login" 
+        Title="Login"
         ContentTemplate="{DataTemplate local:LoginPageView}"
-        Route="LoginPage"
-         />
-    
-  
+        Route="LoginPage" />
+
+
     <ShellContent
         Title="Approve Questions"
         ContentTemplate="{DataTemplate local:ApproveQuestionsPageView}"
-        Route="ApproveQuestionsPage"
-         />
-    
-    
+        Route="ApproveQuestionsPage" />
+
+
     <ShellContent
         Title="User question page"
         ContentTemplate="{DataTemplate local:UserQuestionsPageView}"
-        Route="UserQuestionPage" 
-         />
+        Route="UserQuestionPage" />
 
     <ShellContent
         Title="Admin Page"

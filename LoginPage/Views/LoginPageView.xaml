@@ -18,8 +18,8 @@
             <Entry
                 Grid.Row="1"
                 FontFamily="SuperOceanPersonalUse"
-                Placeholder="Password"
                 IsPassword="True"
+                Placeholder="Password"
                 Text="{Binding Password}" />
 
             <Grid
@@ -27,17 +27,19 @@
                 ColumnDefinitions="1*, 1*"
                 RowDefinitions="1*"
                 RowSpacing="20">
-                <Button Margin="5"
+                <Button
+                    Grid.Row="1"
                     Grid.Column="0"
-                     Grid.Row="1"
-                    Command="{Binding LoginCommand }"
+                    Margin="5"
+                    Command="{Binding LoginCommand}"
                     FontFamily="SuperOceanPersonalUse"
                     Text="Login" />
 
-                <Button Margin="5"
-                    Grid.Column="1"
+                <Button
                     Grid.Row="3"
-                    Command="{Binding CancelCommand }"
+                    Grid.Column="1"
+                    Margin="5"
+                    Command="{Binding CancelCommand}"
                     FontFamily="SuperOceanPersonalUse"
                     Text="Cancel" />
 
