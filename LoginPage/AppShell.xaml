@@ -11,6 +11,10 @@
         ContentTemplate="{DataTemplate local:LoginPageView}"
         Route="LoginPage" />
 
+    <ShellContent
+        Title="Admin Page"
+        ContentTemplate="{DataTemplate local:UserAdminPageView}"
+        Route="UserAdminPage" />
 
     <ShellContent
         Title="Approve Questions"
@@ -23,10 +27,6 @@
         ContentTemplate="{DataTemplate local:UserQuestionsPageView}"
         Route="UserQuestionPage" />
 
-    <ShellContent
-        Title="Admin Page"
-        ContentTemplate="{DataTemplate local:UserAdminPageView}"
-        Route="UserAdminPage" />
 
 
 

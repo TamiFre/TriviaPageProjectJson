@@ -26,11 +26,11 @@ namespace LoginPage.ViewModels
 
         public LoginPageViewModel()
         {
-            LoginCommand = new Command(SearchUserByCommand);
+            LoginCommand = new Command(async () => { await SearchUserByCommand(); }) ;
             CancelCommand = new Command(CancelAll);
         }
 
-        public void SearchUserByCommand()
+        public async Task SearchUserByCommand()
         {
 
             Color = Colors.Red;
@@ -45,7 +45,7 @@ namespace LoginPage.ViewModels
 
                 Dictionary<string,object> data = new Dictionary<string, object>();
                 data.Add("Player", isSuc);
-                AppShell.Current.GoToAsync("UserQuestionPage", data);
+               await AppShell.Current.GoToAsync("///UserAdminPage");
 
             }
             else 

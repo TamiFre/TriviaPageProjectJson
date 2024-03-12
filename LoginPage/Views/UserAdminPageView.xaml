@@ -95,10 +95,9 @@
             <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
                 <CollectionView
                     x:Name="colview"
+                    HeightRequest="300"
                     HorizontalOptions="Center"
-                    ItemsSource="{Binding Players}"
-                    SelectedItem="{Binding SelectedPlayer}"
-                    SelectionMode="Single">
+                    ItemsSource="{Binding Players}">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout ItemSpacing="4" Orientation="Vertical" />
                     </CollectionView.ItemsLayout>
@@ -109,63 +108,63 @@
                                     <SwipeItem
                                         Command="{Binding Source={x:Reference colview}, Path=BindingContext.DeleteCommand}"
                                         CommandParameter="{Binding .}"
-                                        IconImageSource="delete_icon"
+                                        IconImageSource="delete_icon.png"
                                         Text="Delete" />
                                     <SwipeItem
                                         Command="{Binding Source={x:Reference colview}, Path=BindingContext.ResetPointsCommand}"
                                         CommandParameter="{Binding .}"
-                                        IconImageSource="reset_points_icon"
+                                        IconImageSource="reset_points_icon.png"
                                         Text="Reset Points" />
                                 </SwipeView.LeftItems>
-                                <StackLayout Margin="10">
-                                    <Border BackgroundColor="Beige" Stroke="#467a54">
-                                        <Grid
-                                            Margin="10"
-                                            Padding="10"
-                                            Background="Transparent"
-                                            ColumnDefinitions="auto, auto"
-                                            ColumnSpacing="5"
+
+                                <Border BackgroundColor="Transparent" Stroke="#467a54">
+                                    <Grid
+                                        Margin="10"
+                                        Padding="10"
+                                        Background="Transparent"
+                                        ColumnDefinitions="auto, auto"
+                                        ColumnSpacing="5"
+                                        HorizontalOptions="Center"
+                                        RowDefinitions="*, *, *"
+                                        RowSpacing="5">
+                                        <Label
+                                            Grid.RowSpan="3"
+                                            Grid.Column="0"
+                                            FontFamily="SuperOceanPersonalUse"
+                                            FontSize="32"
+                                            HeightRequest="160"
                                             HorizontalOptions="Center"
-                                            RowDefinitions="*, *, *"
-                                            RowSpacing="5">
-                                            <Label
-                                                Grid.RowSpan="3"
-                                                Grid.Column="0"
-                                                FontFamily="SuperOceanPersonalUse"
-                                                FontSize="32"
-                                                HeightRequest="160"
-                                                HorizontalOptions="Center"
-                                                Text="{Binding PlayerName}"
-                                                TextColor="#467a54"
-                                                VerticalOptions="Center"
-                                                WidthRequest="160" />
-                                            <Label
-                                                Grid.Row="0"
-                                                Grid.Column="1"
-                                                FontFamily="SuperOceanPersonalUse"
-                                                FontSize="14"
-                                                HorizontalOptions="Center"
-                                                Text="{Binding PlayerMail}"
-                                                TextColor="#adde87" />
-                                            <Label
-                                                Grid.Row="1"
-                                                Grid.Column="1"
-                                                FontFamily="SuperOceanPersonalUse"
-                                                FontSize="20"
-                                                HorizontalOptions="Center"
-                                                Text="{Binding Darga.DargaName}"
-                                                TextColor="#adde87" />
-                                            <Label
-                                                Grid.Row="2"
-                                                Grid.Column="1"
-                                                FontFamily="SuperOceanPersonalUse"
-                                                FontSize="20"
-                                                HorizontalOptions="Center"
-                                                Text="{Binding PLayerPoints}"
-                                                TextColor="#adde87" />
-                                        </Grid>
-                                    </Border>
-                                </StackLayout>
+                                            Text="{Binding PlayerName}"
+                                            TextColor="#467a54"
+                                            VerticalOptions="Center"
+                                            WidthRequest="160" />
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            FontFamily="SuperOceanPersonalUse"
+                                            FontSize="14"
+                                            HorizontalOptions="Center"
+                                            Text="{Binding PlayerMail}"
+                                            TextColor="#adde87" />
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            FontFamily="SuperOceanPersonalUse"
+                                            FontSize="20"
+                                            HorizontalOptions="Center"
+                                            Text="{Binding Darga.DargaName}"
+                                            TextColor="#adde87" />
+                                        <Label
+                                            Grid.Row="2"
+                                            Grid.Column="1"
+                                            FontFamily="SuperOceanPersonalUse"
+                                            FontSize="20"
+                                            HorizontalOptions="Center"
+                                            Text="{Binding PLayerPoints}"
+                                            TextColor="#adde87" />
+                                    </Grid>
+                                </Border>
+
                             </SwipeView>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
