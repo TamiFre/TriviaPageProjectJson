@@ -22,29 +22,35 @@ namespace LoginPage.ViewModels
         //יש מצב זה בגלל שזה באימולטור של ווינדוס אבל לא הצלחתי ליצור אחד של הטלפון
         //ובגלל זה לא הצלחתי לבדוק בכלל את הסוויפ ווי ואת הפעולות שלו
         //אבל בתקווה זה יעבוד
+
+        //הערה נוספת בזמן הבדיקה בכיתה והמצב מחריד
+        //דברים שעבדו לגמרי יום לפני לא עובדים בכיתה
+        //בווינדוס, למרות שבו השתמשתי בבית, אי אפשר להגיע בכלל למסך שלי, כי משום זה לא מראה את המניו
+        //בטלפון שום כפתור לא עובד וחוץ מלהכניס טקסט שום דבר לא עובד לא הכפתורים לא עושים כלום
+        //הפיקר עדיין לא עובד אבל זה בגלל הבאג שאתה אישרת לי להשאיר
         #region Variables
         private List<Player> fullList;
         private List<Player> filteredList;
         private RankService rankService;
         private UserService service;
         private bool isRefreshing;
-        private Player selectedPlayer;
-        private Darga selectedDarga;
-        private int selectedIndex;
         private string username;
         private string password;
         private string mail;
+        private Player selectedPlayer;
+        private Darga selectedDarga;
+        private int selectedIndex;
         #endregion
         #region Properties
         public ObservableCollection<Player> Players { get; set; }
         public ObservableCollection<Darga> Dargas { get; set; }
         public bool IsRefreshing { get => isRefreshing; set { isRefreshing = value; OnPropertyChanged(); } }
-        public Player SelectedPlayer { get => selectedPlayer; set { selectedPlayer = value; OnPropertyChanged(); } }
-        public Darga SelectedDarga { get => selectedDarga; set { if (selectedDarga != value) { selectedDarga = value; OnPropertyChanged(); FilterPlayers(); } } }
-        public int SelectedIndex { get => selectedIndex; set { selectedIndex = value; OnPropertyChanged(); } }
         public string Username { get => username; set { username = value; ((Command)AddPlayerCommand).ChangeCanExecute(); } }
         public string Password { get => password; set { password = value; ((Command)AddPlayerCommand).ChangeCanExecute(); } }
         public string Mail { get => mail; set { mail = value; ((Command)AddPlayerCommand).ChangeCanExecute(); } }
+        public Player SelectedPlayer { get => selectedPlayer; set { selectedPlayer = value; OnPropertyChanged(); } }
+        public Darga SelectedDarga { get => selectedDarga; set { if (selectedDarga != value) { selectedDarga = value; OnPropertyChanged(); FilterPlayers(); } } }
+        public int SelectedIndex { get => selectedIndex; set { selectedIndex = value; OnPropertyChanged(); } }
         #endregion
         #region Commands
         public ICommand RefreshCommand { get; private set; }
