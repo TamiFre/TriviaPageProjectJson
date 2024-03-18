@@ -11,6 +11,7 @@ using LoginPage.Service;
 
 namespace LoginPage.ViewModels
 {
+    //הדף של תמי
     [QueryProperty(nameof(Player), "Player")]
     public class UserQuestionsPageViewModel : ViewModel
     {
